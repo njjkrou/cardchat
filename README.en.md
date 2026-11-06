@@ -2,7 +2,7 @@
 
 # 🌸 CardChat (藏春阁)
 
-**A multi-tenant AI character roleplay platform you can actually run.**
+**An AI character roleplay platform that speaks the whole Tavern ecosystem**
 
 [中文](README.md) · [English](README.en.md) · [日本語](README.ja.md)
 
@@ -12,61 +12,167 @@ Live demo → **https://ccg.officechat.com.cn**
 
 ---
 
-## What it is
+<p align="center">
+  <img src="docs/images/chat.jpg" alt="Chat" width="49%">
+  <img src="docs/images/discover.jpg" alt="Discover" width="49%">
+</p>
 
-CardChat is a complete, operable platform for AI character roleplay. Users create or import character cards
-and hold long-running conversations with them. The platform handles model access, context assembly, long-term
-memory, content safety and a coin-based billing system, while admins moderate and configure everything from a
-management console.
-
-The hard parts are all on the server side:
-
-- **Context engineering** — character cards, world books, presets, regex scripts, quoted replies and memory
-  blocks, assembled under a token budget
-- **Long-term memory** — layered compression, fact extraction and hybrid retrieval, so a character still
-  remembers you dozens of turns later
-- **Multi-tenant billing** — platform keys and bring-your-own-key in parallel, exact usage-based settlement,
-  subscriptions and coins side by side
-- **Operable** — review queues, orders, ledgers, subscriptions, announcements and platform configuration
-
-> This repository contains **only the frontend build (obfuscated)** for showcase and distribution.
-> The backend source is not public. The feature documentation below covers the full stack.
+CardChat is a complete AI character chat platform: character cards, world books, presets, long-term memory,
+group chat, image generation, subscriptions, billing and an admin console — ready to run.
+It does more than chat: it brings the whole SillyTavern-style ecosystem to the web, with less friction.
 
 ---
 
-## Screenshots
+## 1. Full Tavern ecosystem support
 
-<table>
-  <tr>
-    <td width="50%"><img src="docs/images/discover.jpg" alt="Discover"></td>
-    <td width="50%"><img src="docs/images/chat.jpg" alt="Chat"></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>Discover · tag filters and recommendations</sub></td>
-    <td align="center"><sub>Chat · streaming replies, actions, multiple branches</sub></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="docs/images/character.jpg" alt="Character detail"></td>
-    <td width="50%"><img src="docs/images/subscription.jpg" alt="Subscription"></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>Character card · profile, tags, likes, start chatting</sub></td>
-    <td align="center"><sub>Subscription · balance, plans, payment</sub></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="docs/images/profile.jpg" alt="Profile"></td>
-    <td width="50%"><img src="docs/images/characters.jpg" alt="My characters"></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>Profile · check-in, invites, works and stats</sub></td>
-    <td align="center"><sub>Character management · create / import / group</sub></td>
-  </tr>
-</table>
+**SillyTavern cards (v1 / v2)**, **Chub.ai** and **JanitorAI** formats are all supported — PNG and JSON cards import
+directly, keeping the persona, first message, example dialogue and embedded world book intact.
 
 <p align="center">
-  <img src="docs/images/chat-mobile.jpg" width="30%" alt="Mobile chat">
-  <br>
-  <sub>Mobile · fully responsive</sub>
+  <img src="docs/images/characters.jpg" alt="Character management" width="72%">
+</p>
+
+**Cards can be read and edited directly.** No format conversion, no re-typing — open a card and change the persona,
+the greeting, the avatar or the tags.
+
+<p align="center">
+  <img src="docs/images/character.jpg" alt="Character detail" width="72%">
+</p>
+
+## 2. One-click card generation
+
+Don't feel like writing a persona? Describe the character in one sentence and the AI fills in the name, description,
+personality, greeting and tags. Pick a style (romance / fantasy / campus / workplace / mystery / healing…) and refine
+afterwards.
+
+<p align="center">
+  <img src="docs/images/create.jpg" alt="One-click card generation" width="72%">
+</p>
+
+## 3. Single chat and group chat
+
+**Single chat**: streaming replies, multiple branches (swipe), regenerate, edit and resend, quoted replies, export.
+
+<p align="center">
+  <img src="docs/images/chat.jpg" alt="Single chat" width="72%">
+</p>
+
+**Group chat**: put several characters in one conversation, `@`-mention who should speak, and only that character
+answers. Characters also pick up on each other — an ensemble feel single chat can't give you.
+
+<p align="center">
+  <img src="docs/images/chat-group.jpg" alt="Group chat" width="72%">
+</p>
+
+## 4. Images and web search
+
+- Send images; multimodal models can see and talk about them
+- Web search results are merged into context when real-time information is needed
+- Image / video generation is integrated and **currently in testing**
+
+## 5. One-click jailbreak preset import
+
+Jailbreaking used to mean hand-assembling prompts and tuning parameters. Now import a SillyTavern preset JSON —
+entries are split, toggled individually, and can be bound per conversation.
+
+<p align="center">
+  <img src="docs/images/presets.jpg" alt="Presets" width="72%">
+</p>
+
+Presets also expose **Temperature, Top P, Top K, Min P, Frequency / Presence / Repetition Penalty** and more, so
+**model parameters are fully user-configurable** without touching code.
+
+## 6. World books
+
+Three layers: global, character-embedded and per-conversation. Import SillyTavern world books, edit entries by hand,
+and trigger them by keyword.
+
+<p align="center">
+  <img src="docs/images/worldbook.jpg" alt="World books" width="72%">
+</p>
+
+## 7. User personas and settings
+
+Everyone gets a persona: avatar, nickname, personality, description. Switch any time — characters talk to *your*
+persona instead of a generic "user".
+
+<p align="center">
+  <img src="docs/images/profile.jpg" alt="Profile" width="49%">
+  <img src="docs/images/settings.jpg" alt="Settings" width="49%">
+</p>
+
+Settings let you choose the **platform API** (coins, billed at list price) or plug in **your own API key** (no coins),
+with your own base URL and model.
+
+## 8. Rewards
+
+- **Daily check-in** — fixed coins, once a day
+- **Creation rewards** — publish a card to earn, plus bonuses for likes and downloads
+- **Invites** — invite-code signup rewards both sides
+- **First-purchase offers / subscription plans** — two paths to top up
+
+<p align="center">
+  <img src="docs/images/subscription.jpg" alt="Subscription" width="72%">
+</p>
+
+---
+
+## More features
+
+| Feature | Description |
+|---|---|
+| Discover & recommendations | Pick tags (romance / healing / workplace / fantasy / horror…), then swipe through cards — like or skip, it learns |
+| Long-term memory | Layered compression, fact extraction, hybrid retrieval — remembers you dozens of turns later |
+| Auto messages | Characters message you on their own schedule |
+| Leaderboards | Creators ranked by works, likes and usage |
+| Notifications | Likes, comments, review results, announcements |
+| Regex scripts | Display-layer replacement to remove AI tics and clean formatting |
+| Export | Text or JSON |
+| Follow creators | Keep up with an author's new works |
+| i18n | Simplified Chinese, English, Japanese, Korean, French, Spanish |
+| Mobile | Fully responsive, works in mobile browsers |
+
+<p align="center">
+  <img src="docs/images/discover-prefs.jpg" alt="Pick tags" width="24%">
+  <img src="docs/images/discover-tags.jpg" alt="Tags selected" width="24%">
+  <img src="docs/images/leaderboard.jpg" alt="Leaderboard" width="24%">
+  <img src="docs/images/notifications.jpg" alt="Notifications" width="24%">
+</p>
+
+<p align="center">
+  <img src="docs/images/chat-mobile.jpg" alt="Mobile chat" width="26%">
+  <img src="docs/images/discover-mobile.jpg" alt="Mobile discover" width="26%">
+  <img src="docs/images/auto.jpg" alt="Auto messages" width="26%">
+</p>
+
+---
+
+## Admin console
+
+Everything operational happens here: review, ban, adjust balances, inspect orders, change prices, publish
+announcements, configure models.
+
+<p align="center">
+  <img src="docs/images/admin-dashboard.jpg" alt="Dashboard" width="72%">
+</p>
+
+<p align="center">
+  <img src="docs/images/admin-users.jpg" alt="Users" width="49%">
+  <img src="docs/images/admin-characters.jpg" alt="Card review" width="49%">
+</p>
+
+<p align="center">
+  <img src="docs/images/admin-orders.jpg" alt="Orders" width="49%">
+  <img src="docs/images/admin-ledger.jpg" alt="Coin ledger" width="49%">
+</p>
+
+<p align="center">
+  <img src="docs/images/admin-platform.jpg" alt="Platform config" width="72%">
+</p>
+
+<p align="center">
+  <img src="docs/images/admin-subscriptions.jpg" alt="Subscription plans" width="49%">
+  <img src="docs/images/admin-comments.jpg" alt="Comment moderation" width="49%">
 </p>
 
 ---
@@ -79,164 +185,30 @@ The hard parts are all on the server side:
 
 | Layer | Choice |
 |---|---|
-| Frontend | Vue 3 · TypeScript · Vite · SSE streaming rendering |
+| Frontend | Vue 3 · TypeScript · Vite · SSE streaming |
 | Backend | Node.js (22/24) · Express · TypeScript |
-| Database | SQLite (WAL) · `node:sqlite` · FTS5 full-text search (trigram) |
+| Database | SQLite (WAL) · FTS5 full-text search |
 | Model access | Any OpenAI-compatible gateway, streaming with non-streaming fallback |
-| Deployment | Docker Compose (server + web) · Nginx reverse proxy |
+| Deployment | Docker Compose · Nginx reverse proxy |
 
-Deliberate trade-offs:
+### How long-term memory works
 
-- **Single process + SQLite** — no Redis/MySQL to babysit at small-to-medium scale; WAL handles concurrent
-  reads and writes; a backup is just a file copy
-- **Keys live on the server** — the frontend never sees a secret; users may supply their own key and skip coins
-- **Sync streaming, async memory** — replies stream instantly while summaries and fact extraction run in a
-  background scheduler
-
----
-
-## Features
-
-### 1. Character cards & content
-
-| Feature | Description |
-|---|---|
-| Visual card creation | Name, avatar, description, personality, first message, example dialogue, tags, world book binding |
-| PNG import / export | SillyTavern v2 compatible, JSON embedded in the image |
-| Public / private | Publish to the discover feed or keep it to yourself |
-| Moderation | Public cards go through an admin review queue with reject reasons |
-| Likes & favourites | Like counters and a personal favourites list |
-| Comments | Per-card comment threads with deletion |
-| Downloads & popularity | Download counters, chat counts, trending order |
-| Creator pages | Author profile with works and stats |
-| Leaderboards | Ranked by heat, likes or chat count |
-| Preview page | Read the full persona and opening without starting a chat |
-| Tag taxonomy | Romance, healing, workplace, mature, fantasy, horror, RPG, anime, etc. |
-
-### 2. Chat engine
-
-| Feature | Description |
-|---|---|
-| SSE streaming | Token-by-token output with low first-token latency and stop support |
-| Regenerate | Re-answer the last reply |
-| Branches (swipe) | Multiple candidate replies per turn, switch left/right, stored independently |
-| Edit & resend | Edit a past message and regenerate downstream |
-| Quoted replies | Quote any message; the server expands it into context |
-| Image attachments | Send images, understood by multimodal models |
-| Structured blocks | Structured data in messages renders separately from prose |
-| Group chat | Several characters in one conversation, @-mention to pick a speaker |
-| Personas | Save multiple user identities and switch at any time |
-| Presets (jailbreak) | Built-in system prompt templates, editable, bound per conversation, toggle per entry |
-| World books | Global / character-embedded / per-conversation, keyword triggered |
-| Regex scripts | Display-layer regex replacement (de-AI-ifying, formatting) with scope and priority |
-| Export | Export a conversation as text or JSON |
-| Message actions | Copy, delete, retry, jump to top/bottom |
-| History paging | Load older messages on scroll instead of fetching everything |
-
-### 3. Long-term memory (the core)
-
-The longer a chat runs, the more expensive context becomes. Memory splits "what to remember" into layers and
-buys the longest memory possible within a fixed token budget:
+The longer a chat runs, the more expensive context becomes. Memory is split into layers so a fixed token budget
+buys the longest memory possible:
 
 | Layer | What it does | Cost |
 |---|---|---|
-| **L1 working memory** | Slice the most recent raw messages by token budget and message cap | Fixed per turn |
-| **L2 chunk summaries** | Every 30 messages or 6,000 chars, generate one summary in the background — never recomputed | One call per chunk |
-| **L3 fact cards** | Extract identity / preference / relationship / event facts from summaries, deduplicated | Produced with L2 |
-| **Retrieval** | Keyword retrieval against the current input, injecting matching past snippets | One local query per turn |
+| **L1 working memory** | Slice the most recent raw messages by budget | Fixed per turn |
+| **L2 chunk summaries** | One summary per 30 messages or 6,000 chars, never recomputed | Once per chunk |
+| **L3 fact cards** | Identity / preference / relationship / event facts, deduplicated | With L2 |
+| **Retrieval** | Keyword search against the current input, injected only on hits | One local query per turn |
 
-Other details:
-
-- **No truncation, no injection** — if the history already fits the budget, no memory block is added
-- **Per-sentence keyword rotation** — a single long sentence cannot eat the whole keyword quota, so short but
-  critical words ("peanut allergy") are still retrievable
-- **Fact deduplication** — 2-gram similarity plus longest common substring merges near-duplicates instead of
-  repeating "the cat is named Coalball" six times
-- **Per-conversation toggle** — on by default, users can switch it off in chat
-- **Failed summaries are not persisted** — the pointer does not advance, and the next sweep retries
-
-Measured on real conversations: **~35% fewer prompt tokens** in long-reply scenarios, while the character
-still recalls facts that were pushed out of the window.
-
-### 4. Media
-
-| Feature | Description |
-|---|---|
-| Text-to-image | Scene images generated from the current situation, with prompt enhancement |
-| Image-to-video | Short clips with selectable duration, priced in coins |
-| Image understanding | Multimodal models read user-sent images |
-| Web search | Live search injected into context on demand |
-| Client-side compression | Images are compressed before upload to save bandwidth and storage |
-
-### 5. Coins & subscriptions
-
-| Feature | Description |
-|---|---|
-| Coin balance | Every paid capability is priced in coins |
-| Daily check-in | Once a day, configurable reward |
-| Invites | Invite-code signup rewards both sides |
-| Top-ups | Payment provider integration, tiered packages, async callback reconciliation |
-| Subscriptions | Monthly/yearly plans with discounts or quotas |
-| Exact billing | Settled from the model's reported usage, not estimates |
-| Idempotent ledger | Unique `(user, type, ref)` index, so duplicate callbacks never double-charge |
-| Expiry | Configurable validity period for coins |
-| Ledger view | Users can inspect every credit and debit |
-| Insufficient-balance UX | Shows the balance and three ways out: check-in, top-up, or use your own key |
-| Bring your own key | Users can run on their own quota and skip coins entirely |
-
-### 6. Users & social
-
-| Feature | Description |
-|---|---|
-| Sign up / in | Username, password and captcha, with room for bot checks |
-| Profile | Edit details, upload avatar, stats (works / likes / favourites / comments / follows) |
-| Notifications | System notices, review results, interaction alerts |
-| Announcements | Published from the admin panel, shown as banners and lists |
-| Follow creators | Follow authors to see their new works |
-| i18n | Simplified Chinese, English, Japanese, Korean, French, Spanish |
-| Theming | Light/dark, mobile-first layout, safe-area handling |
-
-### 7. Admin console
-
-| Module | Capabilities |
-|---|---|
-| Dashboard | Users, cards, message volume, revenue |
-| Users | Search, ban/unban, adjust balance, inspect details |
-| Card review | Pending queue, approve or reject with a reason |
-| Comments | Inspect and delete abusive comments |
-| Orders | Top-up orders, statuses, reconciliation |
-| Ledger | Site-wide coin ledger queries |
-| Subscriptions | Plan configuration and per-user subscription records |
-| Platform config | Models and gateways, pricing, registration switch, reward parameters, image/video/search settings |
-| Presets | Create, edit, publish or retire built-in presets |
-| Announcements / notices | Publish announcements and push targeted notifications |
+Measured on real conversations: **~35% fewer prompt tokens**, while facts pushed out of the window are still
+recalled correctly.
 
 ---
 
-## Backend capabilities
-
-The backend is not open source; this section describes what it actually does so the system's completeness can
-be evaluated.
-
-1. **Auth & tenant isolation** — JWT, bcrypt, captcha, rate limiting; every query is scoped by `user_id`.
-2. **Model access** — OpenAI-compatible, platform key or user key, streaming with non-streaming fallback, and
-   content-level guards against gateways that return errors inside HTTP 200 bodies.
-3. **Prompt engine** — system prompt → character card → world book scan → preset entries → persona → memory
-   block → recent history → user input, with SillyTavern macros, quoted-reply expansion and token budgeting.
-4. **Memory service** — background sweeps, dedicated summary model, FTS5 trigram index with LIKE fallback,
-   character-budgeted injection.
-5. **Billing** — exact usage-based coins, idempotent ledger, subscription credits, and balance checks placed
-   before the user message is written so a rejected send leaves no orphan message.
-6. **Auto messages** — a scheduler that proactively messages idle conversations, fully billed and memory-aware,
-   with guards against empty replies.
-7. **Safety** — keyword/rule moderation, upload validation, human review of public content, report handling.
-8. **Payments** — order creation, signature verification, async callbacks, order state machine.
-9. **Admin API** — 32 endpoints covering users, cards, comments, orders, ledger, subscriptions, config,
-   announcements, notices and presets.
-
----
-
-## Repository layout
+## Layout
 
 ```
 .
@@ -246,24 +218,12 @@ be evaluated.
 ├── docs/
 │   ├── architecture.svg
 │   └── images/
-├── web/                      # obfuscated frontend build (static hosting ready)
-│   ├── index.html
-│   └── assets/
+├── web/                      # frontend site, static-hostable
 └── LICENSE
 ```
 
-`web/` is a standard static build. It is a single-page app, so unknown paths must fall back to `index.html`
-(`try_files $uri /index.html` in Nginx), and a backend API is required for login and chatting.
-
----
-
-## About the frontend code
-
-- `web/` is a **production build**: no source maps, no comments, mangled identifiers, plus string-array encoding
-  and control-flow obfuscation
-- Obfuscation applies to the build only; startup, routing and rendering are verified working
-- Original Vue sources, backend sources, database schema and operational configuration are **not** included
-- For custom development, private deployment or feature work, please get in touch
+`web/` is a standard single-page app build. On Nginx, fall back unknown paths to `index.html`
+(`try_files $uri /index.html`).
 
 ---
 
@@ -271,12 +231,6 @@ be evaluated.
 
 **All Rights Reserved.** See [LICENSE](LICENSE).
 
-- You may view and download this repository for learning and evaluation
-- Commercial use, redistribution, or deploying it as a public service requires written permission
-- Project name, UI design and copy belong to the author
-
----
-
 <div align="center">
-<sub>Made with 🌸 · Star it if it inspires you</sub>
+<sub>Made with 🌸</sub>
 </div>
