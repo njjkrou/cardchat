@@ -7,7 +7,8 @@
 [中文](README.md) · [English](README.en.md) · [日本語](README.ja.md)
 
 在线体验 → **https://ccg.officechat.com.cn**
-
+微信：officetech
+QQ:764093443
 </div>
 
 ---
