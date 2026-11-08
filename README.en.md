@@ -129,7 +129,9 @@ with your own base URL and model.
 | Regex scripts | Display-layer replacement to remove AI tics and clean formatting |
 | Export | Text or JSON |
 | Follow creators | Keep up with an author's new works |
-| i18n | Simplified Chinese, English, Japanese, Korean, French, Spanish |
+| i18n | Simplified Chinese, English, Japanese, Korean, French, Spanish (switch from the main menu) |
+| Sign-in | Username & password, or Discord quick login (works even when open registration is off) |
+| Compliance | 18+ confirmation and adult-content consent required; mainland China is not supported for registration |
 | Mobile | Fully responsive, works in mobile browsers |
 
 <p align="center">
