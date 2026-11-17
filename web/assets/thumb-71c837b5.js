@@ -1,0 +1,1 @@
+const n=[96,160,240,360,480,720];function p(i,e=160){if(!i)return"";const t=String(i);if(!t.startsWith("/uploads/")||t.startsWith("/uploads/_t/")||!/\.(png|jpe?g|webp)$/i.test(t.split("?")[0]))return t;const s=typeof window<"u"?Math.min(window.devicePixelRatio||1,2):1,o=e*s;return`/uploads/_t/${n.find(r=>r>=o)||n[n.length-1]}/${t.slice(9)}`}export{p as t};
